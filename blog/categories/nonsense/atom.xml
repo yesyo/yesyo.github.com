@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[yesyo's snippets]]></title>
-  <link href="http://yesyo.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: nonsense | yesyo's snippets]]></title>
+  <link href="http://yesyo.github.com/blog/categories/nonsense/atom.xml" rel="self"/>
   <link href="http://yesyo.github.com/"/>
   <updated>2012-02-09T23:41:36+08:00</updated>
   <id>http://yesyo.github.com/</id>
