@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: android | yesyo's snippets]]></title>
+  <link href="http://yesyo.github.com/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://yesyo.github.com/"/>
+  <updated>2012-02-12T18:23:26+08:00</updated>
+  <id>http://yesyo.github.com/</id>
+  <author>
+    <name><![CDATA[yesyo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[內凹背景小技巧]]></title>
+    <link href="http://yesyo.github.com/blog/2012/02/12/indented-background/"/>
+    <updated>2012-02-12T16:15:00+08:00</updated>
+    <id>http://yesyo.github.com/blog/2012/02/12/indented-background</id>
+    <content type="html"><![CDATA[<p>我想就從一個 Android 小技巧開始好了，要怎麼描述標題著實讓我苦惱。</p>
+
+<p>是這樣的，在 <a href="http://github.com/yesyo/datepicker" title="Android DatePicker Widget">Datepicker</a> 裡，我想讓"今天"這一格有往內凹的感覺。怎麼做呢？當然可以用 photoshop 畫個背景，不過身為一個 programmer (笑)，當然不能碰 photoshop 這種東西(誤)。</p>
+
+<p>於是下面的 xml 就出現了。</p>
+
+<p>``` xml res/drawable/calendar_today_background.xml
+&lt;?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"></p>
+
+<pre><code>&lt;item&gt;
+    &lt;shape&gt;
+        &lt;stroke android:width="1dp" android:color="#202020" /&gt;
+    &lt;/shape&gt;
+&lt;/item&gt;
+
+&lt;item
+    android:top="1dp"
+    android:right="1dp"
+    android:bottom="1dp"
+    android:left="1dp"&gt;
+    &lt;shape&gt;
+        &lt;stroke android:width="1dp" android:color="#2A2A2A"/&gt;
+    &lt;/shape&gt;
+&lt;/item&gt;
+
+&lt;item
+    android:top="2dp"
+    android:right="2dp"
+    android:bottom="2dp"
+    android:left="2dp"&gt;
+    &lt;shape&gt;
+        &lt;solid android:color="#373737" /&gt;
+        &lt;stroke android:width="1dp" android:color="#303030"/&gt;
+    &lt;/shape&gt;
+&lt;/item&gt;
+</code></pre>
+
+<p></layer-list>
+```</p>
+
+<p><a href="http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList" title="Android Layer List">layer list</a> 會從上畫到下，所以最下面的 drawable item 會畫在最上層。如果下面的 item 跟上面的 item 位置重疊到則會蓋掉上面的 item。</p>
+
+<p>所以上面這段 xml，從最上面的 item 開始依序畫了三個正方形，後一個比前一個縮小一個 <a href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension" title="Android dimension">dp</a>，後兩個就會看起來像是陰影，最後一個再填滿正方形內的顏色。</p>
+
+<p>把這指定給 view 的 background：</p>
+
+<p><code>java MonthView.java
+TextView date;
+...
+date.setBackgroundResource(R.drawable.background_today);
+</code></p>
+
+<p>就大功告成。</p>
+
+<p><img src="images/android_datepicker.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[first open source project]]></title>
+    <link href="http://yesyo.github.com/blog/2012/02/12/first-open-source-project/"/>
+    <updated>2012-02-12T16:00:00+08:00</updated>
+    <id>http://yesyo.github.com/blog/2012/02/12/first-open-source-project</id>
+    <content type="html"><![CDATA[<p>實在是有夠驚訝地發現沒有一個堪用的 android open source 日曆可以用。android 3.0 之後有 <a href="http://developer.android.com/reference/android/widget/CalendarView.html">CalendarView</a>，3.0 之前就...只好自己改一個。<a href="http://code.google.com/p/android-calendar-view/">android-calendar-view</a> 功能比較豐富，但是不太符合需求。另外在 github 找到了 <a href="http://dharmin007.wordpress.com/android-calendar-widget-month-view/">Android-Calendar-Widget</a>，有點簡略，code 有點亂，改成了自己想要的樣子，雖然功能仍然簡略，成果在 <a href="https://github.com/yesyo/android-datepicker">android-datepicker</a>。</p>
+
+<p>這麼晚才加入 open source 的行列，實在有點慚愧，但永遠不閒晚，是吧？</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[yesyo's snippets]]></title>
   <link href="http://yesyo.github.com/atom.xml" rel="self"/>
   <link href="http://yesyo.github.com/"/>
-  <updated>2012-02-09T23:41:36+08:00</updated>
+  <updated>2012-02-12T18:23:26+08:00</updated>
   <id>http://yesyo.github.com/</id>
   <author>
     <name><![CDATA[yesyo]]></name>
@@ -12,6 +12,110 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[內凹背景小技巧]]></title>
+    <link href="http://yesyo.github.com/blog/2012/02/12/indented-background/"/>
+    <updated>2012-02-12T16:15:00+08:00</updated>
+    <id>http://yesyo.github.com/blog/2012/02/12/indented-background</id>
+    <content type="html"><![CDATA[<p>我想就從一個 Android 小技巧開始好了，要怎麼描述標題著實讓我苦惱。</p>
+
+<p>是這樣的，在 <a href="http://github.com/yesyo/datepicker" title="Android DatePicker Widget">Datepicker</a> 裡，我想讓&#8221;今天&#8221;這一格有往內凹的感覺。怎麼做呢？當然可以用 photoshop 畫個背景，不過身為一個 programmer (笑)，當然不能碰 photoshop 這種東西(誤)。</p>
+
+<p>於是下面的 xml 就出現了。</p>
+
+<figure class='code'><figcaption><span>res/drawable/calendar_today_background.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;layer-list</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;shape&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;stroke</span>  <span class="na">android:width=</span><span class="s">&quot;1dp&quot;</span> <span class="na">android:color=</span><span class="s">&quot;#202020&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/shape&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;item</span>
+</span><span class='line'>      <span class="na">android:top=</span><span class="s">&quot;1dp&quot;</span>
+</span><span class='line'>      <span class="na">android:right=</span><span class="s">&quot;1dp&quot;</span>
+</span><span class='line'>      <span class="na">android:bottom=</span><span class="s">&quot;1dp&quot;</span>
+</span><span class='line'>      <span class="na">android:left=</span><span class="s">&quot;1dp&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;shape&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;stroke</span>  <span class="na">android:width=</span><span class="s">&quot;1dp&quot;</span> <span class="na">android:color=</span><span class="s">&quot;#2A2A2A&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/shape&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;item</span>
+</span><span class='line'>      <span class="na">android:top=</span><span class="s">&quot;2dp&quot;</span>
+</span><span class='line'>      <span class="na">android:right=</span><span class="s">&quot;2dp&quot;</span>
+</span><span class='line'>      <span class="na">android:bottom=</span><span class="s">&quot;2dp&quot;</span>
+</span><span class='line'>      <span class="na">android:left=</span><span class="s">&quot;2dp&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;shape&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;solid</span> <span class="na">android:color=</span><span class="s">&quot;#373737&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;stroke</span>  <span class="na">android:width=</span><span class="s">&quot;1dp&quot;</span> <span class="na">android:color=</span><span class="s">&quot;#303030&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/shape&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/item&gt;</span>
+</span><span class='line'><span class="nt">&lt;/layer-list&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList" title="Android Layer List">layer list</a> 會從上畫到下，所以最下面的 drawable item 會畫在最上層。如果下面的 item 跟上面的 item 位置重疊到則會蓋掉上面的 item。</p>
+
+<p>所以上面這段 xml，從最上面的 item 開始依序畫了三個正方形，後一個比前一個縮小一個 <a href="http://developer.android.com/guide/topics/resources/more-resources.html#Dimension" title="Android dimension">dp</a>，後兩個就會看起來像是陰影，最後一個再填滿正方形內的顏色。</p>
+
+<p>把這指定給 view 的 background：</p>
+
+<figure class='code'><figcaption><span>MonthView.java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">TextView</span> <span class="n">date</span><span class="o">;</span>
+</span><span class='line'><span class="o">...</span>
+</span><span class='line'><span class="n">date</span><span class="o">.</span><span class="na">setBackgroundResource</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">background_today</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>就大功告成。</p>
+
+<p><img src="images/android_datepicker.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[first open source project]]></title>
+    <link href="http://yesyo.github.com/blog/2012/02/12/first-open-source-project/"/>
+    <updated>2012-02-12T16:00:00+08:00</updated>
+    <id>http://yesyo.github.com/blog/2012/02/12/first-open-source-project</id>
+    <content type="html"><![CDATA[<p>實在是有夠驚訝地發現沒有一個堪用的 android open source 日曆可以用。android 3.0 之後有 <a href="http://developer.android.com/reference/android/widget/CalendarView.html">CalendarView</a>，3.0 之前就&#8230;只好自己改一個。<a href="http://code.google.com/p/android-calendar-view/">android-calendar-view</a> 功能比較豐富，但是不太符合需求。另外在 github 找到了 <a href="http://dharmin007.wordpress.com/android-calendar-widget-month-view/">Android-Calendar-Widget</a>，有點簡略，code 有點亂，改成了自己想要的樣子，雖然功能仍然簡略，成果在 <a href="https://github.com/yesyo/android-datepicker">android-datepicker</a>。</p>
+
+<p>這麼晚才加入 open source 的行列，實在有點慚愧，但永遠不閒晚，是吧？</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[接著 bug 隨之而來]]></title>
